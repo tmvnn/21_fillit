@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/02 23:50:21 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/04 22:09:18 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include "libft/libft.h" //check for compile
 
-# define SF_ALCN(ptr) if (!ptr) return (NULL);
+# define ALCN_CHECK(ptr) if (!ptr) return (NULL);
 
 typedef struct      s_tetlst
 {

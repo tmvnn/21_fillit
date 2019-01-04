@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 21:14:06 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/02 23:50:23 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/05 00:16:25 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,31 +52,30 @@ int		main()
 
 	tet_num = 0;
 	tets = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tets;
 
-	tets->letter = 'A';
-
-	/*tets->x[0] = 0;
-	tets->y[0] = 0;
-	tets->x[1] = 1;
-	tets->y[1] = 0;
-	tets->x[2] = -1;
-	tets->y[2] = 1;
-	tets->x[3] = 0;
-	tets->y[3] = 1;
+	tmp->letter = 'A';
+	/*
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 1;
+	tmp->y[2] = 1;
+	tmp->x[3] = 1;
+	tmp->y[3] = 2;
 	*/
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 0;
+	tmp->y[1] = 1;
+	tmp->x[2] = 0;
+	tmp->y[2] = 2;
+	tmp->x[3] = 0;
+	tmp->y[3] = 3;
 
-	tets->x[0] = 0;
-	tets->y[0] = 0;
-	tets->x[1] = 1;
-	tets->y[1] = 0;
-	tets->x[2] = 1;
-	tets->y[2] = 1;
-	tets->x[3] = 1;
-	tets->y[3] = 2;
-
-	tmp = (t_tetlst*)malloc(sizeof(t_tetlst));
-	tets->next = tmp;
-	tmp = tets->next;
+	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tmp->next;
 
 	tmp->letter = 'B';
 	tmp->x[0] = 0;
@@ -94,12 +93,22 @@ int		main()
 	tmp->letter = 'C';
 	tmp->x[0] = 0;
 	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 2;
+	tmp->y[2] = 0;
+	tmp->x[3] = 2;
+	tmp->y[3] = 1;
+	/*
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
 	tmp->x[1] = 0;
 	tmp->y[1] = 1;
 	tmp->x[2] = 1;
 	tmp->y[2] = 1;
 	tmp->x[3] = 2;
 	tmp->y[3] = 1;
+	*/
 
 	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
 	tmp = tmp->next;
@@ -109,15 +118,76 @@ int		main()
 	tmp->y[0] = 0;
 	tmp->x[1] = 1;
 	tmp->y[1] = 0;
+	tmp->x[2] = -1;
+	tmp->y[2] = 1;
+	tmp->x[3] = 0;
+	tmp->y[3] = 1;
+	/*
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 1;
+	tmp->y[2] = 1;
+	tmp->x[3] = 2;
+	tmp->y[3] = 1;
+	*/
+
+	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tmp->next;
+
+	tmp->letter = 'E';
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 0;
+	tmp->y[2] = 1;
+	tmp->x[3] = 1;
+	tmp->y[3] = 1;
+
+	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tmp->next;
+
+	tmp->letter = 'F';
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
 	tmp->x[2] = 1;
 	tmp->y[2] = 1;
 	tmp->x[3] = 2;
 	tmp->y[3] = 1;
 
-	tmp->next = NULL;
+	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tmp->next;
 
+	tmp->letter = 'G';
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 1;
+	tmp->y[2] = 1;
+	tmp->x[3] = 1;
+	tmp->y[3] = 2;
+
+	tmp->next = (t_tetlst*)malloc(sizeof(t_tetlst));
+	tmp = tmp->next;
+
+	tmp->letter = 'H';
+	tmp->x[0] = 0;
+	tmp->y[0] = 0;
+	tmp->x[1] = 1;
+	tmp->y[1] = 0;
+	tmp->x[2] = 2;
+	tmp->y[2] = 0;
+	tmp->x[3] = 1;
+	tmp->y[3] = 1;
+
+	tmp->next = NULL;
 	tmp = tets;
-	tet_num = 4;
+	tet_num = 8;
 
 	solve_map(tets, tet_num);
 	return (0);
