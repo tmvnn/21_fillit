@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/04 22:09:18 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/05 19:27:52 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,28 @@
 
 # define ALCN_CHECK(ptr) if (!ptr) return (NULL);
 
-typedef struct      s_tetlst
+typedef struct		s_tetlst
 {
-	char            x[TET_SIZE];
+	char			x[TET_SIZE];
 	char			y[TET_SIZE];
 	char			letter;
-	struct s_tetlst   *next;
-}                   t_tetlst;
+	struct s_tetlst *next;
+}					t_tetlst;
+
+typedef struct		s_point
+{
+	int				x;
+	int				y;
+}					t_point;
 
 int					ft_sqrt(int nb);
 char				*solve_map(t_tetlst *tets, int tet_num);
+int					find_square(t_tetlst *tets, char *map, int map_size);
+int					put_tetr(t_tetlst *tets, char *map, int map_size,
+																	t_point p);
+int					delete_tetr(t_tetlst *tets, char *map, int map_size,
+																	t_point p);
+void				reset_map(char *map, int map_size);
 void				print_map(char *map, int map_size);
 
 #endif

@@ -6,25 +6,14 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 21:14:06 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/05 00:16:25 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/05 18:20:15 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "fillit.h"
 
-/*int		tet_parse(char *buff, t_tetlst **tets)
-{
-	if (*buff)
-	{
-		while (*buff)
-		{
-		}
-		return (1);
-	}
-	return (0);
-}*/
-
+/*
 int		ft_sqrt(int nb)
 {
 	int		i;
@@ -41,6 +30,7 @@ int		ft_sqrt(int nb)
 	}
 	return (0);
 }
+*/
 
 int		main()
 {
