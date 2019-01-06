@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 18:31:31 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/05 19:31:41 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/06 23:17:57 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ int			find_square(t_tetlst *tets, char *map, int map_size)
 
 	if (!tets)
 		return (1);
-	/* ft_putchar(tets->letter);
-	 * ft_putchar('\n');
-	 * print_map(map, map_size);
-	 * ft_putchar('\n');*/
+	/*
+	** ft_putchar(tets->letter);
+	** ft_putchar('\n');
+	** print_map(map, map_size);
+	** ft_putchar('\n');
+	*/
 	p.y = -1;
 	while (++p.y < map_size)
 	{
@@ -88,7 +90,7 @@ char		*solve_map(t_tetlst *tets, int tet_num)
 	int		map_size;
 	char	*map;
 
-	map_size = ft_sqrt(TET_SIZE * tet_num);
+	map_size = find_start_size(tet_num);
 	while (1)
 	{
 		ALCN_CHECK((map = ft_strnew(map_size * map_size)));
@@ -96,6 +98,7 @@ char		*solve_map(t_tetlst *tets, int tet_num)
 		if (find_square(tets, map, map_size))
 			break ;
 		ft_strdel(&map);
+		map_size++;
 	}
 	print_map(map, map_size);
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/05 19:27:52 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/07 00:57:03 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define TET_SIZE 4
 
 # include "libft/libft.h" //check for compile
+# include <fcntl.h>
 
 # define ALCN_CHECK(ptr) if (!ptr) return (NULL);
 
@@ -35,6 +36,7 @@ typedef struct		s_point
 }					t_point;
 
 int					ft_sqrt(int nb);
+int					find_start_size(int tet_num);
 char				*solve_map(t_tetlst *tets, int tet_num);
 int					find_square(t_tetlst *tets, char *map, int map_size);
 int					put_tetr(t_tetlst *tets, char *map, int map_size,
