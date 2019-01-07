@@ -17,6 +17,7 @@ int						ft_atoi(const char *str)
 	int					s;
 	int					sign;
 	unsigned long long	rez;
+	size_t				s_len;
 
 	s = 0;
 	while (str[s] == 32 || (str[s] >= 9 && str[s] <= 13))
@@ -29,11 +30,12 @@ int						ft_atoi(const char *str)
 		s++;
 	}
 	rez = 0;
+	s_len = 0;
 	while (str[s] >= 48 && str[s] <= 57)
 	{
 		rez = rez * 10 + str[s] - 48;
 		s++;
-		if (rez > 9223372036854775807)
+		if (rez > LLONG_MAX || (rez < ULLONG_MAX && ++s_len >= 20))
 			return (sign == 1 ? -1 : 0);
 	}
 	return (sign * (int)rez);
