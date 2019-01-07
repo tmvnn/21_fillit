@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 18:20:45 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/06 23:17:34 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/08 01:12:15 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_sqrt(int nb)
 
 int		find_start_size(int tet_num)
 {
-	return (tet_num > 0 && tet_num <= 4 ? 4 : ft_sqrt(TET_SIZE * tet_num));
+	return (ft_sqrt(TET_SIZE * tet_num));
 }
 
 void	reset_map(char *map, int map_size)

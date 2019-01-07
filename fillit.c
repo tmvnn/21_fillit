@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/06 20:10:35 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/07 22:02:33 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/08 00:48:14 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int				main(int argc, char **argv)
 	t_tetlst	*tets;
 
 	if (argc != 2)
-		ft_putstr("usage: binary_file tetraminos_file\n");
+		ft_putstr("usage: ./fillit [tetraminos_file]\n");
 	else
 	{
 		if ((fd = open(argv[1], O_RDONLY)) < 0)

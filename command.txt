@@ -1,1 +1,0 @@
-gcc -Wall -Wextra -Werror fillit.c solve_map.c map_f.c validation.c -I libft -L libft -lft -o t

@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/07 22:01:15 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/08 00:44:55 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUFF_SIZE 21
 # define TET_SIZE 4
 
-# include "libft/libft.h" //check for compile
+# include "libft.h"
 # include <fcntl.h>
 # include <stdio.h> //DELETE!
 
