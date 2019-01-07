@@ -6,20 +6,23 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/07 00:57:03 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/07 22:01:15 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define BUFF_SIZE 20
+# define BUFF_SIZE 21
 # define TET_SIZE 4
 
 # include "libft/libft.h" //check for compile
 # include <fcntl.h>
+# include <stdio.h> //DELETE!
 
-# define ALCN_CHECK(ptr) if (!ptr) return (NULL);
+# define ALCN_CHECK(ptr) if (!ptr) return (0);
+
+//free(tets) ???
 
 typedef struct		s_tetlst
 {
@@ -35,6 +38,10 @@ typedef struct		s_point
 	int				y;
 }					t_point;
 
+t_tetlst			*ft_create_elem(char letter);
+void				ft_list_push_back(t_tetlst **begin_list, t_tetlst *cur_tet);
+int					create_tetr(t_tetlst **tets, char *buff, char letter);
+t_tetlst			*read_2_lst(int fd, int *tet_num);
 int					ft_sqrt(int nb);
 int					find_start_size(int tet_num);
 char				*solve_map(t_tetlst *tets, int tet_num);
@@ -45,5 +52,8 @@ int					delete_tetr(t_tetlst *tets, char *map, int map_size,
 																	t_point p);
 void				reset_map(char *map, int map_size);
 void				print_map(char *map, int map_size);
+void				*pr_error();
+int					input_is_valid();
+int					tets_is_valid(int tet_num);
 
 #endif

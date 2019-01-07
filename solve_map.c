@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 18:31:31 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/06 23:17:57 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/07 22:09:20 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,6 @@ int			find_square(t_tetlst *tets, char *map, int map_size)
 
 	if (!tets)
 		return (1);
-	/*
-	** ft_putchar(tets->letter);
-	** ft_putchar('\n');
-	** print_map(map, map_size);
-	** ft_putchar('\n');
-	*/
 	p.y = -1;
 	while (++p.y < map_size)
 	{
