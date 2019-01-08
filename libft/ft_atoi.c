@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 22:37:47 by lbellona          #+#    #+#             */
-/*   Updated: 2018/12/04 00:02:20 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/08 19:47:14 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int						ft_atoi(const char *str)
 	s_len = 0;
 	while (str[s] >= 48 && str[s] <= 57)
 	{
-		rez = rez * 10 + str[s] - 48;
-		s++;
-		if (rez > LLONG_MAX || (rez < ULLONG_MAX && ++s_len >= 20))
+		rez = rez * 10 + str[s++] - 48;
+		if (rez > 9223372036854775807LL ||
+				(rez < 18446744073709551615ULL && ++s_len >= 20))
 			return (sign == 1 ? -1 : 0);
 	}
 	return (sign * (int)rez);
