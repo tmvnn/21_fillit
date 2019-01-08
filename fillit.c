@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/06 20:10:35 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/08 00:48:14 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/09 01:34:31 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,12 @@ int				create_tetr(t_tetlst **tets, char *buff, char letter)
 			}
 			cur_tet->x[j] = m_iter % TET_SIZE - delt.x;
 			cur_tet->y[j] = m_iter / TET_SIZE - delt.y;
+			//printf("%d", cur_tet->x[j] = m_iter % TET_SIZE - delt.x);
+			//printf("%d\n",cur_tet->y[j] = m_iter / TET_SIZE - delt.y);
 		}
 		m_iter = *buff++ == '\n' ? m_iter : m_iter + 1;
 	}
+	//printf("\n"); //DELETE
 	ft_list_push_back(tets, cur_tet);
 	return (1);
 }
@@ -79,8 +82,8 @@ t_tetlst		*read_2_lst(int fd, int *tet_num)
 	while ((size = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[size] = '\0';
-		if (!(input_is_valid()))
-			return ((t_tetlst *)pr_error());
+		if (!(input_is_valid(buff)))
+			return (0);
 		ALCN_CHECK((create_tetr(&tets, buff, (i + 65))));
 		*tet_num = ++i;
 	}
@@ -98,13 +101,17 @@ int				main(int argc, char **argv)
 		ft_putstr("usage: ./fillit [tetraminos_file]\n");
 	else
 	{
+		//int t = 3;
+		//printf("%d\n", ABS(-5 - 2 * t) + ABS(t + t * (+2)) - ABS(12));
 		if ((fd = open(argv[1], O_RDONLY)) < 0)
 			return ((int)pr_error());
 		if ((tets = read_2_lst(fd, &tet_num)))
 		{
-			if (tets_is_valid(tet_num))
+			if (connetivity_is_valid(tets, tet_num))
 				solve_map(tets, tet_num);
 		}
+		else
+			return ((int)pr_error());
 	}
 	return (0);
 }

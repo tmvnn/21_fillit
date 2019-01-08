@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/08 00:44:55 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/09 01:34:33 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # define BUFF_SIZE 21
 # define TET_SIZE 4
 
-# include "libft.h"
+# include "libft/libft.h" //CHANGE!
 # include <fcntl.h>
 # include <stdio.h> //DELETE!
 
 # define ALCN_CHECK(ptr) if (!ptr) return (0);
+# define ABS(number) ((number) > 0 ? (number):-(number))
 
 //free(tets) ???
 
@@ -53,7 +54,7 @@ int					delete_tetr(t_tetlst *tets, char *map, int map_size,
 void				reset_map(char *map, int map_size);
 void				print_map(char *map, int map_size);
 void				*pr_error();
-int					input_is_valid();
-int					tets_is_valid(int tet_num);
+int					input_is_valid(char *buff);
+int					connetivity_is_valid(t_tetlst *tets, int tet_num);
 
 #endif
