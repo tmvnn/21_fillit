@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 18:49:54 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/09 01:34:33 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/09 17:35:35 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include "libft/libft.h" //CHANGE!
 # include <fcntl.h>
-# include <stdio.h> //DELETE!
+//# include <stdio.h> //DELETE!
 
 # define ALCN_CHECK(ptr) if (!ptr) return (0);
 # define ABS(number) ((number) > 0 ? (number):-(number))

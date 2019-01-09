@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/06 20:10:35 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/09 01:34:31 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/09 17:35:14 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,9 @@ int				create_tetr(t_tetlst **tets, char *buff, char letter)
 			}
 			cur_tet->x[j] = m_iter % TET_SIZE - delt.x;
 			cur_tet->y[j] = m_iter / TET_SIZE - delt.y;
-			//printf("%d", cur_tet->x[j] = m_iter % TET_SIZE - delt.x);
-			//printf("%d\n",cur_tet->y[j] = m_iter / TET_SIZE - delt.y);
 		}
 		m_iter = *buff++ == '\n' ? m_iter : m_iter + 1;
 	}
-	//printf("\n"); //DELETE
 	ft_list_push_back(tets, cur_tet);
 	return (1);
 }
