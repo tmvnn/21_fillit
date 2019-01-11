@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/06 20:10:35 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/09 17:35:14 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/12 00:44:41 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,23 @@ t_tetlst		*read_2_lst(int fd, int *tet_num)
 	t_tetlst	*tets;
 	char		buff[BUFF_SIZE + 1];
 	int			size;
+	int			last_buff_size;
 	int			i;
 
 	i = 0;
 	tets = NULL;
+	last_buff_size = 0;
 	while ((size = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[size] = '\0';
-		if (!(input_is_valid(buff)))
+		last_buff_size = size;
+		if (size < 20 || !(input_is_valid(buff)))
 			return (0);
 		ALCN_CHECK((create_tetr(&tets, buff, (i + 65))));
 		*tet_num = ++i;
 	}
+	if (last_buff_size >= BUFF_SIZE)
+		return (0);
 	close(fd);
 	return (tets);
 }
@@ -95,11 +100,9 @@ int				main(int argc, char **argv)
 	t_tetlst	*tets;
 
 	if (argc != 2)
-		ft_putstr("usage: ./fillit [tetraminos_file]\n");
+		ft_putstr("usage: fillit [tetraminos_file]\n");
 	else
 	{
-		//int t = 3;
-		//printf("%d\n", ABS(-5 - 2 * t) + ABS(t + t * (+2)) - ABS(12));
 		if ((fd = open(argv[1], O_RDONLY)) < 0)
 			return ((int)pr_error());
 		if ((tets = read_2_lst(fd, &tet_num)))

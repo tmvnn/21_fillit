@@ -6,16 +6,16 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 21:13:49 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/09 17:36:20 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/12 00:48:07 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		*pr_error(void)
+void			*pr_error(void)
 {
 	ft_putstr("error\n");
-	return (0);
+	exit(0);
 }
 
 int				input_is_valid(char *buff)
@@ -37,22 +37,16 @@ int				input_is_valid(char *buff)
 		dot += buff[i] == '.' ? 1 : 0;
 		shrp += buff[i] == '#' ? 1 : 0;
 	}
-	if (dot != 12 || shrp != 4 || (buff[i - 1] != '\n' && buff[i - 2] != '\n'))
-		return (0);
-	if (endl < 3 || endl > 5 || buff[0] == '\n')
+	if (dot != 12 || shrp != 4 || (buff[i - 1] != '\n' && buff[i - 2] != '\n')
+			|| endl < 4 || endl > 5 || buff[0] == '\n')
 		return (0);
 	return (1);
 }
 
-void			zero_arr(int *b, int n, size_t len)
+void			dfs_connetivity_check(t_tetlst *tets, int *flag, int st,
+																int *con_num)
 {
-	while (len)
-		b[--len] = n;
-}
-
-void			dfs_connetivity_check(t_tetlst *tets, int *flag, int st, int *con_num)
-{
-	int 		i;
+	int			i;
 
 	*con_num = *con_num + 1;
 	i = -1;
@@ -61,7 +55,7 @@ void			dfs_connetivity_check(t_tetlst *tets, int *flag, int st, int *con_num)
 	{
 		if (!flag[i] &&
 				(ABS(tets->x[st] - tets->x[i]) +
-				 ABS(tets->y[st] - tets->y[i])) == 1)
+				ABS(tets->y[st] - tets->y[i])) == 1)
 			dfs_connetivity_check(tets, flag, i, con_num);
 	}
 }
@@ -72,7 +66,6 @@ int				blocks_are_connected(t_tetlst *tets)
 	int			flag[TET_SIZE];
 
 	con_num = 0;
-	tets->letter = tets->letter;
 	zero_arr(flag, 0, TET_SIZE);
 	dfs_connetivity_check(tets, flag, 0, &con_num);
 	if (con_num != TET_SIZE)

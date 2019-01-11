@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 18:20:45 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/08 01:12:15 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/12 00:29:55 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ int		ft_sqrt(int nb)
 			break ;
 	}
 	return (0);
+}
+
+void	zero_arr(int *b, int n, size_t len)
+{
+	while (len)
+		b[--len] = n;
 }
 
 int		find_start_size(int tet_num)
