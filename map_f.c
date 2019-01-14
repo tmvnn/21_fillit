@@ -6,7 +6,7 @@
 /*   By: lbellona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 18:20:45 by lbellona          #+#    #+#             */
-/*   Updated: 2019/01/12 00:29:55 by lbellona         ###   ########.fr       */
+/*   Updated: 2019/01/14 20:56:52 by lbellona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ int		find_start_size(int tet_num)
 
 void	reset_map(char *map, int map_size)
 {
-	ft_memset(map, '.', map_size * map_size);
+	ft_memset(map, '.', map_size);
 }
